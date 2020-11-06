@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DCO App</string>
+    <string name="register"><u>register</u></string>
 </resources>
