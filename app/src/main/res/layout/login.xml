@@ -76,7 +76,8 @@
                 app:cardCornerRadius="5dp"
                 app:cardElevation="0dp"
                 android:layout_marginTop="40dp"
-                app:cardBackgroundColor="@color/colorPrimary">
+                app:cardBackgroundColor="@color/colorPrimary"
+                android:onClick="loginButton">
 
                 <TextView
                     android:layout_width="wrap_content"
