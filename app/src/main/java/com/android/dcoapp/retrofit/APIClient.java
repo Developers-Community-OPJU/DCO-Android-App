@@ -5,8 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
-    public static final String BASE_URL = "https://dco-event-api.herokuapp.com";
-    public static final String append = "/api/events";
+    public static final String BASE_URL = "https://dco-server-api.herokuapp.com";
+    public static final String append = "/api";
 
     static APIservices apIservices = null;
 

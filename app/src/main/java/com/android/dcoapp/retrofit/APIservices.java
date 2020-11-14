@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 
 public interface APIservices {
 
-    @GET(APIClient.append+"/find")
+    @GET(APIClient.append+"/events/find")
     Call<EventsModel> getAllEvent();
 
 }

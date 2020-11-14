@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFE800</color>
+    <color name="colorPrimary">#F9F10F</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="link_color">#2196F3</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
+    <color name="home_background_color">#E1E1E1</color>
+    <color name="event_card_color">#2B3146</color>
 </resources>

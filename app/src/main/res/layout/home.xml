@@ -14,76 +14,19 @@
         <include layout="@layout/home_custom_toolbar" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <FrameLayout
+        android:id="@+id/frame_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!--further code here-->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher" />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/ic_launcher"/>
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
+    <!--bottom navigation view-->
     <com.google.android.material.bottomappbar.BottomAppBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom">
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/bottom_menu"
