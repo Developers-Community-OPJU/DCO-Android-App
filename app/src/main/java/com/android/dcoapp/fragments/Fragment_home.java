@@ -1,6 +1,7 @@
 package com.android.dcoapp.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,16 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.dcoapp.Home;
+import com.android.dcoapp.Login;
 import com.android.dcoapp.R;
 import com.android.dcoapp.adapter.Past_event_adapter;
 import com.android.dcoapp.adapter.Upcoming_event_adapter;
 import com.android.dcoapp.model.Event;
 import com.android.dcoapp.model.EventsModel;
 import com.android.dcoapp.retrofit.APIClient;
+import com.android.dcoapp.retrofit.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +34,13 @@ import retrofit2.Response;
 
 public class Fragment_home extends Fragment {
 
+    RecyclerView upcoming_recyclerView, past_event_recyclerView;
+    Button logoutbtn;
+    SessionManager manager;
+
     public Fragment_home() {
         // Required empty public constructor
     }
-
-    RecyclerView upcoming_recyclerView, past_event_recyclerView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,21 @@ public class Fragment_home extends Fragment {
         past_event_recyclerView.setHasFixedSize(true);
 
         extractData(view);
+
+        //logging out test
+        manager = new SessionManager(getActivity());
+        manager.CreatePreferences();
+
+        logoutbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                manager.removeToken();
+                Intent intent = new Intent(getActivity(), Login.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
         return view;
     }
 
@@ -99,5 +120,6 @@ public class Fragment_home extends Fragment {
     private void initializationView(View view) {
         upcoming_recyclerView = view.findViewById(R.id.upcoming_recyclerView);
         past_event_recyclerView = view.findViewById(R.id.pastevents_recyclerView);
+        logoutbtn = view.findViewById(R.id.logout_button);
     }
 }
