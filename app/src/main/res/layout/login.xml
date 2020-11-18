@@ -44,6 +44,7 @@
             android:layout_marginTop="50dp">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_username_textInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -57,6 +58,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_password_textInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,13 +75,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/login_btn"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="0dp"
                 android:layout_marginTop="40dp"
-                app:cardBackgroundColor="@color/colorPrimary"
-                android:onClick="loginButton">
+                app:cardBackgroundColor="@color/colorPrimary">
 
                 <TextView
                     android:layout_width="wrap_content"

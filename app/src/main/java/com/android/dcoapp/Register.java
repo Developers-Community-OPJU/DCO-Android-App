@@ -56,19 +56,26 @@ public class Register extends AppCompatActivity implements TextWatcher {
 
     private boolean Validation() {
         String first_name = firstnameedt.getText().toString().trim();
-        String last_name = lastnameedt.getText().toString().trim();
+        //String last_name = lastnameedt.getText().toString().trim();
         String branch = branchedt.getText().toString().trim();
         String username = usernameedt.getText().toString().trim();
         String email = emailedt.getText().toString().trim();
         String password = passwordedt.getText().toString().trim();
         String confirm_password = confirmedt.getText().toString().trim();
 
+        //implement textWatcher
+        firstnameedt.addTextChangedListener(this);
+        branchedt.addTextChangedListener(this);
+        usernameedt.addTextChangedListener(this);
+        emailedt.addTextChangedListener(this);
+        passwordedt.addTextChangedListener(this);
+        confirmedt.addTextChangedListener(this);
+
         if (TextUtils.isEmpty(first_name)) {
             first_in_lay.setErrorEnabled(true);
             first_in_lay.setError("first name is required!!");
             firstnameedt.setFocusableInTouchMode(true);
             firstnameedt.requestFocus();
-            firstnameedt.addTextChangedListener(this);
             return false;
         }
 
@@ -77,7 +84,6 @@ public class Register extends AppCompatActivity implements TextWatcher {
             branch_in_lay.setError("branch is required!!");
             branchedt.setFocusableInTouchMode(true);
             branchedt.requestFocus();
-            branchedt.addTextChangedListener(this);
             return false;
         }
 
@@ -86,7 +92,6 @@ public class Register extends AppCompatActivity implements TextWatcher {
             username_in_lay.setError("username is required!!");
             usernameedt.setFocusableInTouchMode(true);
             usernameedt.requestFocus();
-            usernameedt.addTextChangedListener(this);
             return false;
         }else if (username.length() < 6){
             username_in_lay.setErrorEnabled(true);
@@ -101,7 +106,6 @@ public class Register extends AppCompatActivity implements TextWatcher {
             email_in_lay.setError("email is required!!");
             emailedt.setFocusableInTouchMode(true);
             emailedt.requestFocus();
-            emailedt.addTextChangedListener(this);
             return false;
         }else if (!isEmailValid(email)){
             email_in_lay.setErrorEnabled(true);
@@ -116,7 +120,6 @@ public class Register extends AppCompatActivity implements TextWatcher {
             password_in_lay.setError("password is required!!");
             passwordedt.setFocusableInTouchMode(true);
             passwordedt.requestFocus();
-            passwordedt.addTextChangedListener(this);
             return false;
         }else if (password.length() < 6){
             password_in_lay.setErrorEnabled(true);
@@ -131,7 +134,6 @@ public class Register extends AppCompatActivity implements TextWatcher {
             confirm_in_lay.setError("please re-enter the password");
             confirmedt.setFocusableInTouchMode(true);
             confirmedt.requestFocus();
-            confirmedt.addTextChangedListener(this);
             return false;
         }else if (!password.matches(confirm_password)){
             confirm_in_lay.setErrorEnabled(true);
