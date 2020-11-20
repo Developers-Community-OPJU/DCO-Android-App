@@ -47,6 +47,7 @@
                         android:textStyle="normal" />
 
                     <TextView
+                        android:id="@+id/upcoming_event_viewMore_textView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
@@ -102,6 +103,7 @@
                         android:textStyle="normal" />
 
                     <TextView
+                        android:id="@+id/past_event_viewMore_textView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"

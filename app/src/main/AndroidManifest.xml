@@ -11,9 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home"
+        <activity android:name=".Past_event_view_more"
             android:screenOrientation="portrait"
+            android:parentActivityName=".Home"
             android:theme="@style/noActionbar"/>
+        <activity android:name=".Upcoming_event_view_more"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Home"
+            android:theme="@style/noActionbar"/>
+        <activity
+            android:name=".Home"
+            android:screenOrientation="portrait"
+            android:theme="@style/noActionbar" />
         <activity
             android:name=".Register"
             android:parentActivityName=".Login"

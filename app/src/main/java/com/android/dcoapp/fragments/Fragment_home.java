@@ -1,6 +1,5 @@
 package com.android.dcoapp.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,12 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.dcoapp.Home;
 import com.android.dcoapp.Login;
+import com.android.dcoapp.Past_event_view_more;
 import com.android.dcoapp.R;
+import com.android.dcoapp.Upcoming_event_view_more;
 import com.android.dcoapp.adapter.Past_event_adapter;
 import com.android.dcoapp.adapter.Upcoming_event_adapter;
 import com.android.dcoapp.model.Event;
@@ -32,10 +32,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_home extends Fragment {
+public class Fragment_home extends Fragment implements View.OnClickListener {
 
     RecyclerView upcoming_recyclerView, past_event_recyclerView;
     Button logoutbtn;
+    TextView upcoming_viewmorebtn, past_viewmorebtn;
     SessionManager manager;
 
     public Fragment_home() {
@@ -64,6 +65,8 @@ public class Fragment_home extends Fragment {
 
         extractData(view);
 
+        ButtonListener(view);
+
         //logging out test
         manager = new SessionManager(getActivity());
         manager.CreatePreferences();
@@ -79,6 +82,11 @@ public class Fragment_home extends Fragment {
             }
         });
         return view;
+    }
+
+    private void ButtonListener(View view) {
+        upcoming_viewmorebtn.setOnClickListener(this);
+        past_viewmorebtn.setOnClickListener(this);
     }
 
     private void ToastMassage(String msg) {
@@ -121,5 +129,20 @@ public class Fragment_home extends Fragment {
         upcoming_recyclerView = view.findViewById(R.id.upcoming_recyclerView);
         past_event_recyclerView = view.findViewById(R.id.pastevents_recyclerView);
         logoutbtn = view.findViewById(R.id.logout_button);
+        upcoming_viewmorebtn = view.findViewById(R.id.upcoming_event_viewMore_textView);
+        past_viewmorebtn = view.findViewById(R.id.past_event_viewMore_textView);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.upcoming_event_viewMore_textView:
+                startActivity(new Intent(getActivity(), Upcoming_event_view_more.class));
+                break;
+            case R.id.past_event_viewMore_textView:
+                startActivity(new Intent(getActivity(), Past_event_view_more.class));
+                break;
+
+        }
     }
 }
